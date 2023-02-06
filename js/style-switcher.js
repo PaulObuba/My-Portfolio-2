@@ -1,16 +1,19 @@
 // Toggle Style Switcher
 
+const styleSwitcher = document.querySelector(".style-switcher");
+
 const styleSwitcherToggler = document.querySelector(".style-switcher-toggler");
 styleSwitcherToggler.addEventListener("click", () => {
-  document.querySelector(".style-switcher").classList.toggle("open");
+  styleSwitcher.classList.toggle("open");
 });
 
 // Hide Style Switcher toggler onScroll
 window.addEventListener("scroll", () => {
   if (document.querySelector(".style-switcher").classList.contains("open")) {
-    document.querySelector(".style-switcher").classList.remove("open");
+    styleSwitcher.classList.remove("open");
   }
 });
+
 
 // Set Theme Color
 
@@ -32,7 +35,7 @@ const dayNight = document.querySelector(".day-night");
 dayNight.addEventListener("click", () => {
   dayNight.querySelector("i").classList.toggle("fa-sun");
   dayNight.querySelector("i").classList.toggle("fa-moon");
-  document.body.classList.toggle("dark")
+  document.body.classList.toggle("light")
 });
 
 window.addEventListener("load", () => {
@@ -42,3 +45,7 @@ window.addEventListener("load", () => {
     dayNight.querySelector("i").classList.add("fa-moon");
   }
 });
+
+
+
+

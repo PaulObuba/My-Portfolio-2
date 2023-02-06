@@ -2,8 +2,10 @@
 var typed = new Typed(".typing", {
   strings: [
     "",
-    "Web Designer",
+    "Front-End Developer",
+    "Freelancer",
     "Web Developer",
+    "Web Designer",
   ],
   typeSpeed: 100,
   BackSpeed: 60,
@@ -25,7 +27,7 @@ for (let i = 0; i < totalNavList; i++) {
     removeBackSection();
     for (let j = 0; j < totalNavList; j++) {
       if (navList[j].querySelector("a").classList.contains("active")) {
-        addBackSection(j)
+        addBackSection(j);
       }
       navList[j].querySelector("a").classList.remove("active");
     }
@@ -40,7 +42,7 @@ function addBackSection(num) {
   allSection[num].classList.add("back-section");
 }
 
-// REMOBE-BACK-SECTION
+// REMOvE-BACK-SECTION
 function removeBackSection() {
   for (let i = 0; i < totalNavList; i++) {
     allSection[i].classList.remove("back-section");
@@ -111,4 +113,41 @@ navTogglerBtn.addEventListener("click", () => {
 function rightSectionTogglerBtn() {
   rightSection.classList.toggle("open");
   navTogglerBtn.classList.toggle("open");
+}
+
+// EMAIL JS lINK
+
+// Contact Section PopUp
+
+const popUp = document.querySelector("#popup");
+const contactOverlay = document.querySelector(".contact-overlay");
+
+function SendMail(e) {
+  // function openPopUp() {
+  //   popUp.classList.add("open")
+  // }
+
+  var params = {
+    from_name: document.getElementById("name").value,
+    user_email: document.getElementById("email_id").value,
+    subject: document.getElementById("subject").value.toUpperCase(),
+    message: document.getElementById("message").value,
+    to_name: "Paul",
+  };
+  emailjs
+    .send("service_o9d6f7c", "template_xzv8hpu", params)
+    .then(function (res) {
+      // Open PopUp Function
+      function openPopUp() {
+        popUp.classList.add("open");
+        contactOverlay.classList.add("contact-overlay-open");
+      }
+      openPopUp();
+    });
+}
+
+// Close PopUp Function
+function closePopUp() {
+  popUp.classList.toggle("open");
+  contactOverlay.classList.remove("contact-overlay-open");
 }
